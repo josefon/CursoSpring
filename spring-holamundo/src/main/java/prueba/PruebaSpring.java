@@ -20,5 +20,7 @@ public class PruebaSpring {
         BeanFactory factory = context;
         BeanSpring miBean = (BeanSpring) factory.getBean("miBean");
         System.out.println("Mensaje: " + miBean.getMensaje());
+        BeanSpring miBean2 = (BeanSpring) factory.getBean("miBean2");
+        System.out.println("Mensaje: " + miBean2.getMensaje());
     }
 }
