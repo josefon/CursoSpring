@@ -8,7 +8,7 @@ public class PruebaInterprete {
         Traductor traductor = new Traductor();
         InterpreteEspanol interprete = new InterpreteEspanol();
         
-        traductor.setInterprete(interprete);
+        //traductor.setInterprete(interprete);
         traductor.setNombre("Carlos Esparza");
         traductor.hablar();
         

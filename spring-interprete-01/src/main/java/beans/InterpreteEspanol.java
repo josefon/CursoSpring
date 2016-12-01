@@ -1,6 +1,6 @@
 package beans;
 
-public class InterpreteEspanol {
+public class InterpreteEspanol implements Interprete {
 
     public void saludar() {
         System.out.println("Hola, mi nombre es...");
