@@ -14,7 +14,21 @@ public class Malabarista implements Concursante {
     
     @Override
     public void ejecutar() throws EjecucionException {
-        System.out.println("Malabareo = " + pelotas + " pelotas. ");
+        System.out.println("Malabareo = " + getPelotas() + " pelotas. ");
+    }
+
+    /**
+     * @return the pelotas
+     */
+    public int getPelotas() {
+        return pelotas;
+    }
+
+    /**
+     * @param pelotas the pelotas to set
+     */
+    public void setPelotas(int pelotas) {
+        this.pelotas = pelotas;
     }
     
 }
