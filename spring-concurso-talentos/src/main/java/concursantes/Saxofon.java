@@ -1,5 +1,8 @@
 package concursantes;
 
+import org.springframework.stereotype.Component;
+
+
 public class Saxofon implements Instrumento {
 
     @Override

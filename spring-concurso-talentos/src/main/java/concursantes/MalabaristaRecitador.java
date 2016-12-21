@@ -5,10 +5,15 @@
  */
 package concursantes;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author jc.defrutos
  */
+@Component("soleiRecitador")
 public class MalabaristaRecitador extends Malabarista {
     private Poema poema;
     
@@ -17,7 +22,8 @@ public class MalabaristaRecitador extends Malabarista {
         this.poema = poema;
     }
     
-    public MalabaristaRecitador(int nPelotas, Poema poema){
+    @Autowired
+    public MalabaristaRecitador(@Value("15") int nPelotas, Poema poema){
         super(nPelotas);
         this.poema = poema;
     }
