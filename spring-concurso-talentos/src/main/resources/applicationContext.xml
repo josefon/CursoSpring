@@ -39,7 +39,7 @@ http://www.springframework.org/schema/aop
     </bean>
     
     
-    <aop:config>
+    <!--<aop:config>
         <aop:aspect ref="audiencia">
             <aop:pointcut id="show" expression="execution(* concursantes.Concursante.ejecutar(..))"/>
             <aop:before method="sentarse" pointcut-ref="show"/>
@@ -47,6 +47,15 @@ http://www.springframework.org/schema/aop
             <aop:after-returning method="aplaudir" pointcut-ref="show"/>
             <aop:after-throwing method="devolucion" pointcut-ref="show"/>
         </aop:aspect>
-    </aop:config>
+    </aop:config>-->
+    
+    <!--<aop:config>
+        <aop:aspect ref="audiencia">
+            <aop:pointcut id="show" expression="execution(* concursantes.Concursante.ejecutar(..))" />
+            <aop:around pointcut-ref="show" method="monitorearShow" />
+        </aop:aspect>
+    </aop:config>-->
+    
+    <aop:aspectj-autoproxy/>
     
 </beans>
