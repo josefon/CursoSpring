@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-ene-2017 0:46:32 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.josefon.vetclub1.Actores" table="actores" catalog="videoclub" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="32" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="64" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="timestamp">
+            <column name="fecha_nacimiento" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
