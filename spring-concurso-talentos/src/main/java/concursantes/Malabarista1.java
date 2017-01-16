@@ -2,17 +2,17 @@ package concursantes;
 
 import org.springframework.stereotype.Component;
 
-@Component("solei")
-public class Malabarista implements Concursante {
+@Component
+public class Malabarista1 implements Concursante {
 
     private int pelotas = 10;
     
-    public Malabarista(){
+    public Malabarista1(){
         
     }
     
     //@Autowired
-    public Malabarista(int pelotas){
+    public Malabarista1(int pelotas){
         this.pelotas = pelotas;
     }
     
