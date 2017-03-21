@@ -1,5 +1,7 @@
 package com.udemy.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,8 @@ import tools.Constantes;
 @RequestMapping("/example3")
 public class Example3Controller {
 	
+	private static final Log LOGGER = LogFactory.getLog(Example3Controller.class);
+	
 	//#1 - Forma de redireccionar
 //	@GetMapping("/")
 //	public String redirect(){
@@ -32,14 +36,20 @@ public class Example3Controller {
 	@GetMapping("/showForm")
 	public String showForm(Model model){
 		model.addAttribute("person", new Person());
+		LOGGER.info("INFO TRACE");
+		LOGGER.warn("WARNING TRACE");
+		LOGGER.error("ERROR TRACE");
+		LOGGER.debug("DEBUG TRACE");
 		return Constantes.FORM_VIEW;
 	}
 	
 	@PostMapping("/addperson")
 	public ModelAndView addPerson(@ModelAttribute("person") Person persona){
+		LOGGER.info("METHOD: 'addPerson' -- PARAMS: '" + persona.toString() + "'");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(Constantes.RESULT_VIEW);
 		mav.addObject("person", persona);
+		LOGGER.info("TEMPLATE: '" + mav.getViewName() +  "' -- DATA: '" + persona.toString() + "'");
 		return mav;
 	}
 	
