@@ -70,6 +70,9 @@ public class ExampleController {
 	}
 
 	
+	
+	
+	//s
 	@GetMapping(value = "/exampleMAV")
 	public ModelAndView exampleMAV() {
 		ModelAndView mav = new ModelAndView(Constantes.EXAMPLE_VIEW);
