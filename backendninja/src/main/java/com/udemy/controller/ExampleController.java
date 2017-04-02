@@ -3,6 +3,8 @@ package com.udemy.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.udemy.component.ExampleComponent;
 import com.udemy.model.Person;
+import com.udemy.service.SampleService;
 
 import tools.Constantes;
 
@@ -24,6 +27,13 @@ public class ExampleController {
 	@Autowired
 	@Qualifier("exampleComponent")
 	private ExampleComponent exampleComponent;
+	
+	
+	@Autowired
+	@Qualifier("sampleService")
+	private SampleService sampleService;
+	
+	private final static Log LOG  = LogFactory.getLog(ExampleController.class);
 	
 	// //Primera forma
 	// //Usa RequestMapping indicando la ruta y el tipo de petición. Sería
@@ -65,7 +75,8 @@ public class ExampleController {
 	public String exampleString(Model model) {
 		exampleComponent.sayHello();
 		//model.addAttribute("person", new Person("Jon", 23)); 
-		model.addAttribute("people", getPeople());
+		LOG.info("En example STring");
+		model.addAttribute("people", sampleService.getListPeople());
 		return Constantes.EXAMPLE_VIEW;
 	}
 
@@ -76,17 +87,9 @@ public class ExampleController {
 	@GetMapping(value = "/exampleMAV")
 	public ModelAndView exampleMAV() {
 		ModelAndView mav = new ModelAndView(Constantes.EXAMPLE_VIEW);
+		LOG.info("En example MAV");
 		//mav.addObject("person", new Person("Mikel", 30));
-		mav.addObject("people", getPeople());
+		mav.addObject("people", sampleService.getListPeople());
 		return mav;
-	}
-	
-	private List<Person> getPeople(){
-		List<Person> people = new ArrayList<Person>();
-		people.add(new Person("Jon", 23));
-		people.add(new Person("Mikel", 30));
-		people.add(new Person("Eva", 41));
-		people.add(new Person("Peter", 18));
-		return people;
 	}
 }

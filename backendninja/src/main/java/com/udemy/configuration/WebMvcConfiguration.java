@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.udemy.component.RequestTimeInterceptor;
+import com.udemy.component.TimeInterceptor;
 
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
@@ -15,9 +16,13 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter{
 	@Qualifier("requestTimeInterceptor")
 	private RequestTimeInterceptor requestTimeInterceptor;
 	
+	@Autowired
+	private TimeInterceptor timeInterceptor;
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(requestTimeInterceptor);
+		//registry.addInterceptor(requestTimeInterceptor);
+		registry.addInterceptor(timeInterceptor);
 	}
 	
 }
